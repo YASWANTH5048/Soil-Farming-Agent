@@ -3,20 +3,10 @@
 ## Project Description
 The Soil Farming Agent is an application designed to help users understand which crops grow best in different types of soils. The application provides detailed information on various soil types and allows users to view and manage crop and seed distributor details.
 
-## Table of Contents
-- [Installation Instructions](#installation-instructions)
-- [Usage Instructions](#usage-instructions)
-- [Project Features](#project-features)
-- [Technologies Used](#technologies-used)
-- [System Architecture](#system-architecture)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact Information](#contact-information)
-
 ## Installation Instructions
 1. Clone the repository:
     ```bash
-    git clone https://github.com/your-username/soil-farming-agent.git
+    git clone https://github.com/YASWANTH5048/soil-farming-agent.git
     ```
 2. Navigate to the project directory:
     ```bash
