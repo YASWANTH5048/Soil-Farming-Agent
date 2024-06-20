@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Admin | Soil Farming Agent</title>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js"></script>
+    <script type="module">
+        // Import the necessary functions from the Firebase SDKs
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-analytics.js";
+        import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-storage.js";
+        import { getDatabase, ref as dbRef, push } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyDqEKhxlK7mNIkwchlw5TJGRUoMTkwzOi8",
+            authDomain: "soil-farming-agent-ay2277.firebaseapp.com",
+            databaseURL: "https://soil-farming-agent-ay2277-default-rtdb.firebaseio.com",
+            projectId: "soil-farming-agent-ay2277",
+            storageBucket: "soil-farming-agent-ay2277.appspot.com",
+            messagingSenderId: "1086872501805",
+            appId: "1:1086872501805:web:5a4db008e98514826742a4",
+            measurementId: "G-73CDFP7CPL"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const storage = getStorage(app);
+        const database = getDatabase(app);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('soilForm').addEventListener('submit', (event) => {
+                event.preventDefault();
+                const soilName = document.getElementById('soilName').value;
+                const soilDescription = document.getElementById('soilDescription').value;
+                const soilImage = document.getElementById('soilImage').files[0];
+
+                if (!soilImage) {
+                    alert('Please select an image to upload.');
+                    return;
+                }
+
+                console.log('Uploading file:', soilImage.name);
+                const storageRef = ref(storage, 'soilImages/' + soilImage.name);
+                const uploadTask = uploadBytesResumable(storageRef, soilImage);
+
+                uploadTask.on('state_changed',
+                    (snapshot) => {
+                        const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                        console.log('Upload is ' + progress + '% done');
+                    },
+                    (error) => {
+                        console.error('Upload failed:', error);
+                    },
+                    () => {
+                        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+                            console.log('File available at', downloadURL);
+                            const soilData = {
+                                name: soilName,
+                                description: soilDescription,
+                                imageUrl: downloadURL
+                            };
+                            push(dbRef(database, 'soilDetails'), soilData)
+                                .then(() => {
+                                    alert('Soil details uploaded successfully');
+                                    document.getElementById('soilForm').reset();
+                                })
+                                .catch((error) => {
+                                    console.error('Error storing soil details:', error);
+                                });
+                        });
+                    }
+                );
+            });
+        });
+    </script>
+</head>
+
+<body style="padding-top: 50px;">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">
+                    <img src="img/soil.png" alt="Soil Icon"
+                    style="display:inline-block; height:24px; margin-right:10px;">
+                    Soil Farming Agent</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="index.html"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>Admin: Upload Soil Details</h2>
+        <form id="soilForm">
+            <div class="form-group">
+                <label for="soilName">Soil Name:</label>
+                <input type="text" class="form-control" id="soilName" required>
+            </div>
+            <div class="form-group">
+                <label for="soilDescription">Description:</label>
+                <textarea class="form-control" id="soilDescription" rows="3" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="soilImage">Image:</label>
+                <input type="file" class="form-control" id="soilImage" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Upload</button>
+        </form>
+    </div>
+
+</body>
+
+</html>
