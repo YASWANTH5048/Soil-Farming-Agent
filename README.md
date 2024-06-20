@@ -5,17 +5,17 @@ The Soil Farming Agent is an application designed to help users understand which
 
 ## Installation Instructions
 1. Clone the repository:
-    ```bash
-    git clone https://github.com/YASWANTH5048/soil-farming-agent.git
-    ```
+    
+   - git clone https://github.com/YASWANTH5048/soil-farming-agent.git
+
 2. Navigate to the project directory:
-    ```bash
-    cd soil-farming-agent
-    ```
+    
+    -cd soil-farming-agent
+   
 3. Install dependencies (if any):
-    ```bash
-    npm install
-    ```
+    
+    -npm install
+
 4. Set up Firebase:
     - Create a Firebase project.
     - Add Firebase configuration to the project.
