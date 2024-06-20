@@ -41,28 +41,9 @@ The Soil Farming Agent is an application designed to help users understand which
 - Firebase for authentication and database management
 
 ## System Architecture
-![System Architecture Diagram](path/to/architecture-diagram.png)
+
 - The system consists of a frontend built with HTML, CSS, and JavaScript.
 - Firebase is used for backend services including authentication and database.
 
-## Contributing
-1. Fork the repository.
-2. Create a new branch:
-    ```bash
-    git checkout -b feature/your-feature-name
-    ```
-3. Make your changes and commit them:
-    ```bash
-    git commit -m "Add feature description"
-    ```
-4. Push to the branch:
-    ```bash
-    git push origin feature/your-feature-name
-    ```
-5. Open a pull request on GitHub.
 
-## License
-This project is licensed under the MIT License.
 
-## Contact Information
-For any questions or support, please contact us at [hanishchowdary9999@gmail.com](mailto:hanishchowdary9999@gmail.com).
