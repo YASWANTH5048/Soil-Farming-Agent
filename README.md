@@ -1,7 +1,7 @@
 # Soil Farming Agent
 
 ## Project Description
-The Soil Farming Agent project is an web-based platform developed using HTML,CSS,JavaScript and Firebase for authentication and database management.It aims to help farmers and agricultural stakeholders understand which crops grow best in different types of soils. The project provides detailed information on various soil types and allows  to view and manage crop and seed distributor details.
+The Soil Farming Agent project is an web-based platform developed using HTML,CSS,bootstrap,JavaScript and Firebase for authentication and database management.It aims to help farmers and agricultural stakeholders understand which crops grow best in different types of soils. The project provides detailed information on various soil types and allows  to view and manage crop and seed distributor details.
 
 ## Installation Instructions
 1. Clone the repository:
@@ -37,12 +37,12 @@ The Soil Farming Agent project is an web-based platform developed using HTML,CSS
 - Admin panel for updating information.
 
 ## Technologies Used
-- HTML, CSS, JavaScript
+- HTML, CSS, Bootstrap, JavaScript
 - Firebase for authentication and database management
 
 ## System Architecture
 
-- The system consists of a frontend built with HTML, CSS, and JavaScript.
+- The system consists of a frontend built with HTML, CSS, Bootstrap and JavaScript.
 - Firebase is used for backend services including authentication and database.
 
 
