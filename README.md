@@ -6,7 +6,7 @@ The Soil Farming Agent project is an web-based platform developed using HTML,CSS
 ## Installation Instructions
 1. Clone the repository:
     
-   - git clone https://github.com/YASWANTH5048/soil-farming-agent.git
+   - git clone https://github.com/YASWANTH7722/soil-farming-agent.git
 
 2. Navigate to the project directory:
     
