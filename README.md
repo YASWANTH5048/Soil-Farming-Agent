@@ -1,7 +1,7 @@
 # Soil Farming Agent
 
 ## Project Description
-The Soil Farming Agent is an application designed to help users understand which crops grow best in different types of soils. The application provides detailed information on various soil types and allows users to view and manage crop and seed distributor details.
+The Soil Farming Agent project is an web-based platform designed to help users understand which crops grow best in different types of soils. The project provides detailed information on various soil types and allows users to view and manage crop and seed distributor details.
 
 ## Installation Instructions
 1. Clone the repository:
