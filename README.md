@@ -10,11 +10,11 @@ The Soil Farming Agent is an application designed to help users understand which
 
 2. Navigate to the project directory:
     
-    -cd soil-farming-agent
+    - cd soil-farming-agent
    
 3. Install dependencies (if any):
     
-    -npm install
+    - npm install
 
 4. Set up Firebase:
     - Create a Firebase project.
